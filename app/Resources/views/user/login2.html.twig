@@ -1,0 +1,39 @@
+<div class="tg-widget tg-widgetlogin">
+
+    <div class="tg-widgetcontent">
+        <div class="tg-widgettitle">
+            <h3>Connectez-vous à votre compte</h3>
+        </div>
+        <form action="{{ path("fos_user_security_check") }}" method="post" class="tg-themeform tg-formsignin">
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            {% endif %}
+            <input type="hidden" name="backtourl" value="{{ app.request.server.get('REQUEST_SCHEME') ~ '://' ~ app.request.server.get('SERVER_NAME') ~ app.request.server.get('PHP_SELF') }}">
+            <fieldset>
+                <div class="form-group tg-formgroup">
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" />
+                </div>
+                <div class="form-group tg-formgroup">
+                    <input type="password" id="password" name="_password" required="required" class="form-control" />
+                </div>
+                <div class="tg-kepploginpassword">
+                    <div class="tg-checkbox">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                        <label for="keeplogin">Garder ma session active</label>
+                    </div>
+                </div>
+                <button type="submit" class="tg-btn col-sm-12 col-xs-12" id="_submit" name="_submit" style="background-color: #00adcf"><b>Se connecter</b></button>
+            </fieldset>
+            <a href="{{ path('fos_user_resetting_request') }}" class=""><b>Mot de passe oublie ?</b></a>
+            <br>
+            <hr>
+            <div class="tg-widgettitle">
+                <h3>Nouveau à MedicalApp ?</h3>
+            </div>
+            <button type="button" class="tg-btn tg-btnnext col-sm-12 col-xs-12" style="background-color: #00adcf"><b>Créer un compte</b></button>
+
+        </form>
+    </div>
+
+</div>
+

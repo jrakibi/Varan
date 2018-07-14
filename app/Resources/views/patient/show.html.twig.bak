@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Patient</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ patient.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ patient.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ patient.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>{% if patient.birthday %}{{ patient.birthday|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Gsm</th>
+                <td>{{ patient.gSM }}</td>
+            </tr>
+            <tr>
+                <th>Domicile</th>
+                <td>{{ patient.domicile }}</td>
+            </tr>
+            <tr>
+                <th>Travail</th>
+                <td>{{ patient.travail }}</td>
+            </tr>
+            <tr>
+                <th>Preferrednumber</th>
+                <td>{{ patient.preferredNumber }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ patient.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ patient.sexe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('patient_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('patient_edit', { 'id': patient.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

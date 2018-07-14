@@ -1,0 +1,6 @@
+patient_doctor_display:
+    path:     /display
+    defaults: { _controller: DoctorsBundle:Patient:display }
+patient_doctor_display_changestatus:
+    path:     /display/ChangeStatus
+    defaults: { _controller: DoctorsBundle:Patient:changestatus }

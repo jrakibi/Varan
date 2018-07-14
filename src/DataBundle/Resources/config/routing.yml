@@ -1,0 +1,3 @@
+data_homepage:
+    path:     /data1234
+    defaults: { _controller: DataBundle:Default:index }

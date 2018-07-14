@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Certification</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ certification.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ certification.title }}</td>
+            </tr>
+            <tr>
+                <th>Occasion</th>
+                <td>{{ certification.occasion }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if certification.date %}{{ certification.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('certifications_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('certifications_edit', { 'id': certification.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
